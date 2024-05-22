@@ -77,6 +77,11 @@ Make the following configuration to No in project settings :
    - `-mllvm -bcf`: activates the bogus control flow pass
    - `-mllvm -bcf_loop=3`: if the pass is activated, applies it 3 times on a function. Default: 1
    - `-mllvm -bcf_prob=40`: if the pass is activated, a basic bloc will be obfuscated with a probability of 40%. Default: 30
+  
+项目配置:
+  Other C Flag里面需要添加以下4个参数，才能正常的编译
+  -DTARGET_OS_OSX=0 -DTARGET_OS_MACCATALYST=0 -DTARGET_OS_IPHONE=1 -DTARGET_OS_IOS=1
+  然后llvm混淆参数添加在后面即可, 经过测试xcode15.4不可添加-bcf等参数
 
 ## Issues
 
